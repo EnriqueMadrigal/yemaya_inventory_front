@@ -26,6 +26,12 @@
             ],
             "styles": [
               "src/styles.css"
+            ],
+            "scripts": [
+           "public/assets/plugins/jquery/jquery.min.js",
+            "public/assets/js/adminlte.js",
+            "node_modules/popper.js/dist/umd/popper.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -62,7 +68,10 @@
               "buildTarget": "expimed:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options" :{
+            "proxyConfig": "proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
@@ -83,10 +92,19 @@
             ],
             "styles": [
               "src/styles.css"
+            ],
+            "scripts": [
+            "public/assets/plugins/jquery/jquery.min.js",
+            "public/assets/js/adminlte.js",
+            "node_modules/popper.js/dist/umd/popper.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
