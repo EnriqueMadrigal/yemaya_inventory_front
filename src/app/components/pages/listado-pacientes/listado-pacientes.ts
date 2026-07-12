@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { EditPaciente } from '../edit-paciente/edit-paciente';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-listado-pacientes',
@@ -7,6 +10,11 @@ import { Component } from '@angular/core';
   styleUrl: './listado-pacientes.css',
 })
 export class ListadoPacientes {
+
+constructor(
+    private router: Router
+){}
+
 
 
 clickEdit(name: string) {
@@ -25,6 +33,11 @@ clickEdit(name: string) {
 }
 */
 }
+
+clickPacienteNuevo(){
+    this.router.navigate(['/editPaciente']);
+}
+
 
 clickCalendar(name: string) {
  

@@ -6,6 +6,7 @@ import { authGuard } from './guards/auth-guard';
 
 import { ListadoPacientes } from './components/pages/listado-pacientes/listado-pacientes';
 import { Unauthorized } from './components/pages/unauthorized/unauthorized';
+import { EditPaciente } from './components/pages/edit-paciente/edit-paciente';
 
 export const routes: Routes = [
 {
@@ -35,6 +36,12 @@ export const routes: Routes = [
 {
     path: 'listadopacientes',
     component: ListadoPacientes,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'editPaciente',
+    component: EditPaciente,
     canActivate: [authGuard],
     data: {roles: ['1','2']}
 },
