@@ -8,6 +8,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../../../services/auth';
 import { User } from '../../../models/User';
 import { firstValueFrom } from 'rxjs';
+import { ResponseData } from '../../../models/ResponseData';
 
 @Component({
   selector: 'app-edit-paciente',
@@ -143,13 +144,21 @@ this.pacienteForm = new FormGroup({
      
             this.pacienteService.register(datosPaciente)
            .subscribe({
-              next: (data) => {
+              next: (data: ResponseData) => {
                 this.isLoading = false;
               console.log('Success payload:', data);
-              this.router.navigate(['/listadopacientes']);
+                if (data.error) {
+                     this.showAlert(data.message);
+                }
+                else {
+                  this.router.navigate(['/listadopacientes']);
+                }
+
+              
         },
         error: (error: HttpErrorResponse) => {
           this.isLoading = false;
+           const errorMessage = error.error?.message || error.message || 'An unknown error occurred';
           if (error.status === 401) {
             this.showAlert('Correo invalido o contraseña invalida');
             console.error('Unauthorized! Token might be expired.');
@@ -161,8 +170,8 @@ this.pacienteForm = new FormGroup({
             // Add your logout or redirection logic here
           }
           else {
-            console.error(`Other error occurred: ${error.status}`);
-            this.showAlert(`Other error occurred: ${error.status}`);
+            console.error(`Other error occurred: ${error}`);
+            this.showAlert(`Other error occurred: ${error.status} ${errorMessage}`);
           }
         }
       });

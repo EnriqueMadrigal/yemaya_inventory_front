@@ -22,6 +22,7 @@ export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
         localStorage.removeItem('token');
         localStorage.removeItem('user_id');
         localStorage.removeItem('email');
+        localStorage.removeItem('user_type');
         console.error('Unauthorized request - session may have expired.');
         router.navigate(['/login']);
       }
