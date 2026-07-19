@@ -126,6 +126,18 @@
             </select>
           </div>
           <div class="col-md-4">
+            <label class="form-label">Estado Paciente: </label>
+            <select class="form-select" formControlName="estado_paciente">
+              <option [value]="0">Activo</option>
+              <option [value]="1">Consulta Próxima</option>
+              <option [value]="2">Consulta Pendiente</option>
+              <option [value]="3">No localizable</option>
+              <option [value]="10">Baja</option>
+
+            </select>
+          </div>
+
+          <div class="col-md-4">
             <div class="form-check mb-2">
               <input class="form-check-input" type="checkbox" id="notifCheck" formControlName="notificacion">
               <label class="form-check-label" for="notifCheck">
@@ -139,7 +151,8 @@
           </div>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button type="button" class="btn btn-secondary me-md-2">Cancelar</button>
+          <button type="button" class="btn btn-secondary me-md-2" (click)="clickCancel()">Cancelar</button>
+          &nbsp;&nbsp;&nbsp;
           <button type="submit" class="btn btn-primary" [disabled]="pacienteForm.invalid">
             Guardar Paciente
             <span class="spinner-border spinner-border-sm" aria-hidden="true" [hidden]="!isLoading"></span> 

@@ -1,8 +1,8 @@
 export interface Paciente {
-  id?: number; // Opcional si es autoincremental al crear
-  Nombres: string;
-  Amaterno?: string;
-  Apaterno?: string;
+  id: number; // es autoincremental al crear
+  nombres: string;
+  amaterno?: string;
+  apaterno?: string;
   FechaNac: Date | string;
   created: Date | string;
   sexo: number;
@@ -31,4 +31,5 @@ export interface Paciente {
   colonia?: string;
   consultorio: number;
   uniqueid?: string;
+  estado_paciente: number;
 }

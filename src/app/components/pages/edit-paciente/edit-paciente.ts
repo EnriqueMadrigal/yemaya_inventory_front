@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject ,input } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService } from '../../../services/alertServices';
 import { Paciente } from '../../../models/Paciente';
 import { PacienteService } from '../../../services/paciente.service';
@@ -9,6 +9,7 @@ import { AuthService } from '../../../services/auth';
 import { User } from '../../../models/User';
 import { firstValueFrom } from 'rxjs';
 import { ResponseData } from '../../../models/ResponseData';
+
 
 @Component({
   selector: 'app-edit-paciente',
@@ -27,9 +28,9 @@ authService: any;
 
   currentUser: Paciente = {
   id: 0,
-  Nombres: "",
-  Amaterno: "",
-  Apaterno: "",
+  nombres: "",
+  amaterno: "",
+  apaterno: "",
   FechaNac: new Date(),
   created: new Date(),
   sexo: 0,
@@ -57,7 +58,8 @@ authService: any;
   notificacion: false, // tinyint(1) generalmente se mapea como boolean
   colonia: "",
   consultorio: 0,
-  uniqueid: ""
+  uniqueid: "",
+  estado_paciente :0
 
 };
 
@@ -65,13 +67,21 @@ authService: any;
     private alerts: AlertService,
     private fb: FormBuilder, 
     private pacienteService: PacienteService,
-   private auth: AuthService ) {
+    private auth: AuthService,
+    private route: ActivatedRoute ) {
     this.authService = auth;
    }
 
   ngOnInit(): void {
   this.initForm();
     this.userId = this.auth.getUserId() ?? "0";
+     const id = this.route.snapshot.paramMap.get('id') ?? "";
+
+    if (id != "0") {
+      this.safeCall(id);
+    }
+
+    console.log(id);
   }
 
 
@@ -81,12 +91,12 @@ initForm(): void {
 
 this.pacienteForm = new FormGroup({
       id: new FormControl(this.currentUser.id),
-      Nombres: new FormControl(this.currentUser.Nombres, [
+      Nombres: new FormControl(this.currentUser.nombres, [
         Validators.required, 
         Validators.maxLength(60)
       ]),
-      Apaterno: new FormControl(this.currentUser.Apaterno, [Validators.maxLength(60)]),
-      Amaterno: new FormControl(this.currentUser.Amaterno, [Validators.maxLength(60)]),
+      Apaterno: new FormControl(this.currentUser.apaterno, [Validators.maxLength(60)]),
+      Amaterno: new FormControl(this.currentUser.amaterno, [Validators.maxLength(60)]),
       FechaNac: new FormControl(this.formatDate(this.currentUser.FechaNac), [Validators.required]),
       sexo: new FormControl(this.currentUser.sexo, [Validators.required]),
       estadocivil: new FormControl(this.currentUser.estadocivil),
@@ -117,7 +127,8 @@ this.pacienteForm = new FormGroup({
       //idpersona: new FormControl(this.currentUser.idpersona),
       uniqueid: new FormControl(this.currentUser.uniqueid),
       created: new FormControl(this.currentUser.created),
-      modified: new FormControl(this.currentUser.modified)
+      modified: new FormControl(this.currentUser.modified),
+      estado_paciente: new FormControl(this.currentUser.estado_paciente),
     });
   }
 
@@ -140,9 +151,29 @@ this.pacienteForm = new FormGroup({
       datosPaciente.idpersona = Number(this.userId);
       console.log('Datos a enviar:', datosPaciente);
       // Aquí llamarías a tu servicio para guardar en la DB
+          //Registro de nuevos pacientes
+         
+        if(datosPaciente.id == 0) {
+          this.RegisterNewPaciente(datosPaciente);
+        }
+        else {
+          this.UpdatePaciente(datosPaciente);
+        }
 
-     
-            this.pacienteService.register(datosPaciente)
+
+
+
+    } else {
+      Object.values(this.pacienteForm.controls).forEach(control => {
+        control.markAsTouched();
+      });
+    }
+  }
+
+
+  private RegisterNewPaciente(datosPaciente :Paciente) {
+
+    this.pacienteService.register(datosPaciente)
            .subscribe({
               next: (data: ResponseData) => {
                 this.isLoading = false;
@@ -175,16 +206,49 @@ this.pacienteForm = new FormGroup({
           }
         }
       });
+  
 
-
-
-
-    } else {
-      Object.values(this.pacienteForm.controls).forEach(control => {
-        control.markAsTouched();
-      });
-    }
+    
   }
+
+
+  private UpdatePaciente(datosPaciente :Paciente) {
+
+    this.pacienteService.update(datosPaciente)
+           .subscribe({
+              next: (data: ResponseData) => {
+                this.isLoading = false;
+              console.log('Success payload:', data);
+                if (data.error) {
+                     this.showAlert(data.message);
+                }
+                else {
+                  this.router.navigate(['/listadopacientes']);
+                }
+
+              
+        },
+        error: (error: HttpErrorResponse) => {
+          this.isLoading = false;
+           const errorMessage = error.error?.message || error.message || 'An unknown error occurred';
+          if (error.status === 401) {
+            this.showAlert('Correo invalido o contraseña invalida');
+            console.error('Unauthorized! Token might be expired.');
+            // Add your logout or redirection logic here
+          } 
+          else if (error.status === 404) {
+            this.showAlert('Error al registar el paciente');
+            console.error('404.');
+            // Add your logout or redirection logic here
+          }
+          else {
+            console.error(`Other error occurred: ${error}`);
+            this.showAlert(`Other error occurred: ${error.status} ${errorMessage}`);
+          }
+        }
+      });
+  
+    }
 
 
 async showAlert(message: string) {
@@ -192,6 +256,31 @@ async showAlert(message: string) {
     // Continue flow after it closes
   }
 
+async safeCall(id: string) {
+   
+
+      this.pacienteService.getPaciente(id).subscribe({
+        next: (data) => {
+           //this.pacientes = [...this.pacientes, data];   
+                    this.currentUser = data;   
+          this.pacienteForm.patchValue(this.currentUser);
+          console.log(this.currentUser);
+
+        },
+        error: (err) => {
+          console.error("Error reading pacientes");
+        }
+
+      });
+
+    //const data = await firstValueFrom(this.pacienteService.getPacientes()); 
+
+  
+}
+
+clickCancel(){
+    this.router.navigate(['/listadopacientes']);
+}
 
 
 }

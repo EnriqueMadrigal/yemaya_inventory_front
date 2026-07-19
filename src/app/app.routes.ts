@@ -40,7 +40,7 @@ export const routes: Routes = [
     data: {roles: ['1','2']}
 },
 {
-    path: 'editPaciente',
+    path: 'editPaciente/:id',
     component: EditPaciente,
     canActivate: [authGuard],
     data: {roles: ['1','2']}
