@@ -1,4 +1,4 @@
-import { Component, OnInit, inject ,input } from '@angular/core';
+import { Component, OnInit, inject ,input, signal } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService } from '../../../services/alertServices';
@@ -9,7 +9,8 @@ import { AuthService } from '../../../services/auth';
 import { User } from '../../../models/User';
 import { firstValueFrom } from 'rxjs';
 import { ResponseData } from '../../../models/ResponseData';
-
+import { ComponentsTextService } from '../../../services/componentsText.service';
+import { ComponentsText } from '../../../models/ComponentsText';
 
 @Component({
   selector: 'app-edit-paciente',
@@ -25,6 +26,7 @@ authService: any;
   userId =  "";
   isLoading = false;
   
+  componentText1 = signal<ComponentsText[]>([]);
 
   currentUser: Paciente = {
   id: 0,
@@ -67,6 +69,7 @@ authService: any;
     private alerts: AlertService,
     private fb: FormBuilder, 
     private pacienteService: PacienteService,
+    private componentsTextService : ComponentsTextService,
     private auth: AuthService,
     private route: ActivatedRoute ) {
     this.authService = auth;
@@ -76,6 +79,7 @@ authService: any;
   this.initForm();
     this.userId = this.auth.getUserId() ?? "0";
      const id = this.route.snapshot.paramMap.get('id') ?? "";
+    this.safeCallSexos();
 
     if (id != "0") {
       this.safeCall(id);
@@ -277,6 +281,33 @@ async safeCall(id: string) {
 
   
 }
+
+
+async safeCallSexos() {
+   
+
+      this.componentsTextService.getComponents("1").subscribe({
+        next: (data) => {
+           //this.pacientes = [...this.pacientes, data];   
+                    this.componentText1.update(currentItems => data);   
+          
+          console.log(this.componentText1);
+          console.log(data);
+
+        },
+        error: (err) => {
+          console.error("Error reading Sexos");
+        }
+
+      });
+
+    //const data = await firstValueFrom(this.pacienteService.getPacientes()); 
+
+  
+}
+
+
+
 
 clickCancel(){
     this.router.navigate(['/listadopacientes']);

@@ -44,8 +44,9 @@
           <div class="col-md-4">
             <label class="form-label">Sexo:  &nbsp;</label>
             <select class="form-select" formControlName="sexo">
-              <option [value]="1">Masculino</option>
-              <option [value]="2">Femenino</option>
+                 @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
             </select>
           </div>
           <div class="col-md-4">
