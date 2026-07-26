@@ -1,4 +1,4 @@
-import { Component, OnInit, inject ,input, signal } from '@angular/core';
+import { Component, OnInit, inject ,input, signal, WritableSignal } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService } from '../../../services/alertServices';
@@ -27,6 +27,10 @@ authService: any;
   isLoading = false;
   
   componentText1 = signal<ComponentsText[]>([]);
+  componentText2 = signal<ComponentsText[]>([]);
+  componentText3 = signal<ComponentsText[]>([]);
+  componentText4 = signal<ComponentsText[]>([]);
+  componentText5 = signal<ComponentsText[]>([]);
 
   currentUser: Paciente = {
   id: 0,
@@ -79,7 +83,14 @@ authService: any;
   this.initForm();
     this.userId = this.auth.getUserId() ?? "0";
      const id = this.route.snapshot.paramMap.get('id') ?? "";
-    this.safeCallSexos();
+    
+    this.safeCallComponents(this.componentText1,"1");
+    this.safeCallComponents(this.componentText2,"2");
+    this.safeCallComponents(this.componentText3,"3");
+    this.safeCallComponents(this.componentText4,"4");
+    this.safeCallComponents(this.componentText5,"5");
+
+
 
     if (id != "0") {
       this.safeCall(id);
@@ -283,13 +294,15 @@ async safeCall(id: string) {
 }
 
 
-async safeCallSexos() {
+async safeCallComponents(arraySignal: WritableSignal<ComponentsText[]>, id: string) {
    
 
-      this.componentsTextService.getComponents("1").subscribe({
+      this.componentsTextService.getComponents(id).subscribe({
         next: (data) => {
-           //this.pacientes = [...this.pacientes, data];   
-                    this.componentText1.update(currentItems => data);   
+                    //this.pacientes = [...this.pacientes, data];   
+          //this.componentText1.update(currentItems => data);   
+          arraySignal.update(currentItems => data);   
+          //arraySignal.update(() => [...data]);
           
           console.log(this.componentText1);
           console.log(data);
@@ -297,6 +310,7 @@ async safeCallSexos() {
         },
         error: (err) => {
           console.error("Error reading Sexos");
+          return [];
         }
 
       });

@@ -37,11 +37,11 @@
           </div>
           </div>
           <div class="row g-3 mb-4">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <label class="form-label">Fecha de Nacimiento</label>
             <input type="date" class="form-control" formControlName="FechaNac">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <label class="form-label">Sexo:  &nbsp;</label>
             <select class="form-select" formControlName="sexo">
                  @for (item of componentText1(); track item.valueId) {
@@ -49,14 +49,26 @@
                     } 
             </select>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
           <label class="form-label">Estado Civil: &nbsp;</label>
             <select class="form-select" formControlName="estadocivil">
-              <option [value]="1">Soltero/a</option>
-              <option [value]="2">Casado/a</option>
-              <option [value]="3">Divorciado/a</option>
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
             </select>
           </div>
+
+          <div class="col-md-3">
+          <label class="form-label">Religion: &nbsp;</label>
+            <select class="form-select" formControlName="religion">
+               @for (item of componentText5(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+
         </div>
     
         <!-- Contacto y Dirección -->
@@ -120,20 +132,17 @@
           <div class="col-md-4">
             <label class="form-label">Tipo de Sangre: </label>
             <select class="form-select" formControlName="tiposangre">
-              <option [value]="1">O+</option>
-              <option [value]="2">A+</option>
-              <option [value]="3">B+</option>
-              <option [value]="4">AB+</option>
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
             </select>
           </div>
           <div class="col-md-4">
             <label class="form-label">Estado Paciente: </label>
             <select class="form-select" formControlName="estado_paciente">
-              <option [value]="0">Activo</option>
-              <option [value]="1">Consulta Próxima</option>
-              <option [value]="2">Consulta Pendiente</option>
-              <option [value]="3">No localizable</option>
-              <option [value]="10">Baja</option>
+              @for (item of componentText4(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
 
             </select>
           </div>
