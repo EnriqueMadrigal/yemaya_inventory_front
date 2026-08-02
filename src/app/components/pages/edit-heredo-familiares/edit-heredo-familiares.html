@@ -17,9 +17,1373 @@
     <!-- /.content-header -->
 
 <div class="card-body">
-    </div>
 
+ <form [formGroup]="antecedentesForm" (ngSubmit)="onSubmit()">
+
+   <p class="text-secondary border-bottom pb-2 mb-3">
+    Usted a algún familiar vivo con la edad  o  fallecido con edad del fallecimiento y causa tal como padre, madre, hermano, hermana, hijo, hija.<br />
+    En segundo grado: Abuelo materno/paterno, Abuela materna/paterna, Tío/Tía (biológicos), Sobrino/Sobrina.<br />
+    Padecen o padecieron, alguno de los problemas que se señalan a continuación y estado de la enfermedad activa, controlada, en remisio o si fue la causa del  fallecimiento?<br />  
+    Si el paciente es adoptado, con historia familar desonocida o sin antecedentes de relevancia.
+    </p>
+        <div class="row g-3 mb-4">
+          <div class="col-md-12">
+            <label class="form-label">Enfermedades metabolicas o Endocrinas<span class="text-danger">*</span></label>
+           </div>
+        </div>
+
+      <div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Diabetes Mellitus tipo 1 o 2: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p1">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p2">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p3">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+      <div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Hiper o Hipotiroidismo: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p4">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p5">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p6">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+  <div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Obesidad morbida: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p7">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p8">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p9">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Sindrome metabolico: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p10">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p11">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p12">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<hr>
+
+
+
+
+
+<div class="row g-3 mb-4">
+          <div class="col-md-12">
+            <label class="form-label">Enfermedades cardiovasculares<span class="text-danger">*</span></label>
+           </div>
+        </div>
+
+     
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Hipertensión: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p13">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p14">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p15">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+     
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Infarto agudo al miocardio: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p16">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p17">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p18">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Insuficiencia cardiaca congestiva: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p19">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p20">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p21">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Accidente vascular cerebral (ACV/EVC): &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p22">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p23">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p24">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Arritmias cardiacas: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p25">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p26">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p27">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Dislipidemias familiares: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p28">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p29">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p30">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Cardiopatias congenitas: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p31">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p32">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p33">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+<hr>
+
+<!-- Enfermedades psiquiatricas-->
+
+<div class="row g-3 mb-4">
+          <div class="col-md-12">
+            <label class="form-label">Enfermedades psiquiatricas mentales o neurologicas:<span class="text-danger">*</span></label>
+           </div>
+        </div>
+
+     
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Depresión mayor o menor: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p34">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p35">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p36">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+     
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Transtorno bipolar: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p37">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p38">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p39">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Esquizofrenia: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p40">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p41">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p42">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Trastorno de ansiedad: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p43">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p44">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p45">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Enfermedad de Alzheimer: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p46">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p47">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p48">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Enfermedad de parkinson: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p49">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p50">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p51">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Abuso de sustancias: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p52">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p53">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p54">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Epilepsia: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p55">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p56">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p57">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+
+<hr>
+
+
+<!-- Enfermedades respiratorias-->
+
+<div class="row g-3 mb-4">
+          <div class="col-md-12">
+            <label class="form-label">Enfermedades respiratorias:<span class="text-danger">*</span></label>
+           </div>
+        </div>
+
+     
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Enfermedad pulmonar obstructiva cronica: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p58">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p59">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p60">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Enfisema: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p61">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p62">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p63">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+      <div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Fibrosis pulmonar: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p64">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p65">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p66">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+      <div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Asma bronquial: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p67">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p68">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p69">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<hr>
+<!-- Enfermedades renales-->
+
+<div class="row g-3 mb-4">
+          <div class="col-md-12">
+            <label class="form-label">Enfermedades renales:<span class="text-danger">*</span></label>
+           </div>
+        </div>
+
+     
+      <div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Litiasis: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p70">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p71">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p72">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+      
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Insuficiencia renal aguda o crónica: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p73">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p74">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p75">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+     
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Enfermedad poliquistica renal: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p76">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p77">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p78">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<hr>
+<!-- Enfermedades venereas-->
+
+<div class="row g-3 mb-4">
+          <div class="col-md-12">
+            <label class="form-label">Enfermedades venereas:<span class="text-danger">*</span></label>
+           </div>
+        </div>
+
+     
+      <div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">VIH/Sida: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p79">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p80">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p81">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Sifilis: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p82">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p83">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p84">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Gonorrea: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p85">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p86">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p87">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+<hr>
+
+<!-- Enfermedades geneticas o raras-->
+
+<div class="row g-3 mb-4">
+          <div class="col-md-12">
+            <label class="form-label">Enfermedades geneticas o raras:<span class="text-danger">*</span></label>
+           </div>
+        </div>
+
+     
+      <div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Fibrosis quistica: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p88">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p89">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p90">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Hemofilia: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p91">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p92">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p93">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Distrofia muscular: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p94">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p95">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p96">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+<div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Síndrome de Down: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p97">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p98">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p99">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+
+
+      <div class="row g-3 mb-4">
+         
+        
+        <div class="col-md-3">
+          <label class="form-label">Enfermedad de Huntington: &nbsp;</label>
+          </div>
+        
+        <div class="col-md-3">
+          <label class="form-label">Usted: &nbsp;</label>
+            <select class="form-select" formControlName="p100">
+               @for (item of componentText1(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Familar directo: &nbsp;</label>
+            <select class="form-select" formControlName="p101">
+               @for (item of componentText2(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+
+          <div class="col-md-3">
+          <label class="form-label">Otro: &nbsp;</label>
+            <select class="form-select" formControlName="p102">
+               @for (item of componentText3(); track item.valueId) {
+              <option [value]="item.valueId">{{ item.textValue }}</option>
+                    } 
+            </select>
+          </div>
+
+      </div> 
+<hr>
+
+
+ </form>
+
+<!-- Formulario--> 
 
 
 </div>
+
+
+
+
 
