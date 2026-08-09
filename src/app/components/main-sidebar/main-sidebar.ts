@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-main-sidebar',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './main-sidebar.html',
   styleUrl: './main-sidebar.css',
 })
