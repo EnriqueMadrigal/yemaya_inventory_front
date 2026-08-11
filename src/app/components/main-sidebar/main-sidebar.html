@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="assets/img/logo1.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Expimed</span>
+      <span class="brand-text font-weight-light">Inventario</span>
     </a>
 
     <!-- Sidebar -->
@@ -48,16 +48,39 @@
           <li class="nav-header">Inventario</li>
           <li class="nav-item">
             <a routerLink="listadopacientes" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>Registro de Productos</p>
+              <i class="nav-icon fas fa-egg"></i>
+              <p>Productos</p>
             </a>
           </li>
            <li class="nav-item">
             <a href="seleccionaPacientes" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>Registro de unidades</p>
+              <i class="nav-icon fas fa-bucket"></i>
+              <p>Unidades</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="seleccionaPacientes" class="nav-link">
+              <i class="nav-icon fas fa-bucket"></i>
+              <p>Unidades básicas</p>
+            </a>
+          </li>
+
+        <li class="nav-item">
+            <a href="seleccionaPacientes" class="nav-link">
+              <i class="nav-icon fas fa-apple-whole"></i>
+              <p>Familias</p>
+            </a>
+          </li>
+
+        <li class="nav-item">
+            <a href="listadoUbicaciones" class="nav-link">
+              <i class="nav-icon fas fa-warehouse"></i>
+              <p>Ubicaciones</p>
+            </a>
+          </li>
+
+
+
 
             @if (currentRole.includes("1")) {
           <li class="nav-item">
