@@ -7,6 +7,8 @@ import { ListadoUbicacion } from './components/pages/ubicacion/listado-ubicacion
 import { EditUbicacion } from './components/pages/ubicacion/edit-ubicacion/edit-ubicacion';
 import { Listadofamilia } from './components/pages/familias/listado-familias/listado-familias';
 import { EditFamilia } from './components/pages/familias/edit-familia/edit-familia';
+import { Listadounidadbasica } from './components/pages/unidadesbasicas/listado-basicas/listado-basicas';
+import { Editbasica } from './components/pages/unidadesbasicas/edit-basica/edit-basica';
 
 import { Unauthorized } from './components/pages/unauthorized/unauthorized';
 
@@ -56,6 +58,18 @@ export const routes: Routes = [
 {
     path: 'editFamilia/:id',
     component: EditFamilia,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'listadoUnidadbasicas',
+    component: Listadounidadbasica,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'editUnidadbasica/:id',
+    component: Editbasica,
     canActivate: [authGuard],
     data: {roles: ['1','2']}
 },

@@ -1,0 +1,53 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Agregar nueva Unidad Básica</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<div class="card-body">
+      <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Datos Personales -->
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <label class="form-label">Nombre <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="nombre" 
+                   [class.is-invalid]="dataForm.get('nombre')?.touched && dataForm.get('nombre')?.invalid">
+          </div>
+          </div>
+          
+
+ <div class="row g-3 mb-4">
+          <div class="col-md-6">
+
+           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="button" class="btn btn-secondary me-md-2" (click)="clickCancel()">Cancelar</button>
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-primary" [disabled]="dataForm.invalid">
+            Guardar Unidad Básica
+            <span class="spinner-border spinner-border-sm" aria-hidden="true" [hidden]="!isLoading"></span> 
+          </button>
+        </div>
+    
+        </div>
+        </div>
+      </form>
+    </div>
+
+
+
+<!-- Formulario-->    
+</div>
