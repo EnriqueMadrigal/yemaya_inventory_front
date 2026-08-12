@@ -3,28 +3,28 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { Observable } from 'rxjs';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { BasicModel } from '../../../../models/BasicModel';
+import { Unidad } from '../../../../models/Unidad';
 import { ResponseData } from '../../../../models/ResponseData';
 import { AlertService } from '../../../../services/alertServices'; 
-import { UnidadbasicaService } from '../../../../services/unidadbasica.service';
+import { UnidadService } from '../../../../services/unidad.service';
 
 
 @Component({
   selector: 'app-listado-unidadbasica',
    imports: [RouterLink],
-  templateUrl: './listado-basicas.html',
-  styleUrl: './listado-basicas.css',
+  templateUrl: './listado-unidades.html',
+  styleUrl: './listado-unidades.css',
 })
-export class Listadounidadbasica implements OnInit{
+export class Listadounidades implements OnInit{
 
-unidadbasicas = signal<BasicModel[]>([]);
+unidades = signal<Unidad[]>([]);
 
 
 
 constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private unidadbasicaService: UnidadbasicaService,
+    private unidadeservice: UnidadService,
     private alert: AlertService
 ){}
 
@@ -39,16 +39,16 @@ this.safeCall();
 }  
 
 clickunidadbasicaNueva(){
-    this.router.navigate(['/editUnidadbasica/0']);
+    this.router.navigate(['/editUnidad/0']);
 }
 
 
 async safeCall() {
   console.log("obteniendo");
-      this.unidadbasicaService.getunidadbasicas().subscribe({
+      this.unidadeservice.getunidades().subscribe({
         next: (data) => {
-         this.unidadbasicas.update(currentItems => data);   
-          console.log(this.unidadbasicas);
+         this.unidades.update(currentItems => data);   
+          console.log(this.unidades);
         },
         error: (err) => {
           console.error("Error reading unidadbasicaes");

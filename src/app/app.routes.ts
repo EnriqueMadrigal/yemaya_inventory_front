@@ -9,6 +9,9 @@ import { Listadofamilia } from './components/pages/familias/listado-familias/lis
 import { EditFamilia } from './components/pages/familias/edit-familia/edit-familia';
 import { Listadounidadbasica } from './components/pages/unidadesbasicas/listado-basicas/listado-basicas';
 import { Editbasica } from './components/pages/unidadesbasicas/edit-basica/edit-basica';
+import { Listadounidades } from './components/pages/unidades/listado-unidades/listado-unidades';
+import { EditUnidad } from './components/pages/unidades/edit-unidad/edit-unidad';
+
 
 import { Unauthorized } from './components/pages/unauthorized/unauthorized';
 
@@ -73,6 +76,19 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: {roles: ['1','2']}
 },
+{
+    path: 'listadounidades',
+    component: Listadounidades,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'editUnidad/:id',
+    component: EditUnidad,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+
 {
     path:'**',
     redirectTo: 'dashboard',

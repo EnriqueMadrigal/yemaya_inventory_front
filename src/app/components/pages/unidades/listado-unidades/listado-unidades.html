@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Listado de Unidades básicas</h1>
+            <h1 class="m-0">Listado de Unidades</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,7 +21,7 @@
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Unidades básicas</h3>
+                <h3 class="card-title">Unidades</h3>
                 <button type="button" class="btn btn-primary float-right" (click)="clickunidadbasicaNueva()"><i class="fa fa-plus" aria-hidden="true"></i>Agregar</button>
               </div>
               <!-- /.card-header -->
@@ -36,13 +36,13 @@
                   </thead>
                   <tbody>
 
-                    @for (unidad of unidadbasicas(); track unidad.id; let i =$index;) {
+                    @for (unidad of unidades(); track unidad.id; let i =$index;) {
                       <tr>
                       <td>{{i + 1}}</td>
                       <td>{{unidad.nombre}}</td>
                       
                       <td class="text-nowrap">
-                        <a class="deco-none" [routerLink]="['/editUnidadbasica', unidad.id]" routerLinkActive="active"><i class="fas fa-pen" style="color: green;"></i></a>
+                        <a class="deco-none" [routerLink]="['/editUnidad', unidad.id]" routerLinkActive="active"><i class="fas fa-pen" style="color: green;"></i></a>
                         <button type=button class="btn deco-none"  (click)="clickDelete(unidad.id)"><i class="fas fa-trash" style="color: red;"></i></button>
                       </td>
                     </tr>
@@ -52,7 +52,7 @@
 
 
                     } @empty {
-                      <td>No tiene familias</td>
+                      <td>No tiene unidades</td>
 
                     }
 
