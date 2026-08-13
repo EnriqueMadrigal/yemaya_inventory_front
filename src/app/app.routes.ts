@@ -11,7 +11,10 @@ import { Listadounidadbasica } from './components/pages/unidadesbasicas/listado-
 import { Editbasica } from './components/pages/unidadesbasicas/edit-basica/edit-basica';
 import { Listadounidades } from './components/pages/unidades/listado-unidades/listado-unidades';
 import { EditUnidad } from './components/pages/unidades/edit-unidad/edit-unidad';
-
+import { Listadomarca } from './components/pages/marca/listado-marcas/listado-marcas';
+import { EditMarca } from './components/pages/marca/edit-marca/edit-marca';
+import { ListadoArticulos } from './components/pages/articulos/listado-articulos/listado-articulos';
+import { EditArticulo } from './components/pages/articulos/edit-articulo/edit-articulo';
 
 import { Unauthorized } from './components/pages/unauthorized/unauthorized';
 
@@ -88,7 +91,30 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: {roles: ['1','2']}
 },
-
+{
+    path: 'listadoMarcas',
+    component: Listadomarca,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'editMarca/:id',
+    component: EditMarca,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'listadoArticulos',
+    component: ListadoArticulos,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'editArticulo/:id',
+    component: EditArticulo,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
 {
     path:'**',
     redirectTo: 'dashboard',

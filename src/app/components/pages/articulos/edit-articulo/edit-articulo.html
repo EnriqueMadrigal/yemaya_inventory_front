@@ -1,0 +1,105 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Agregar nuevo Articulo</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<div class="card-body">
+      <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Datos Personales -->
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-5">
+            <label class="form-label">Nombre <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="nombre_producto" 
+                   [class.is-invalid]="dataForm.get('nombre_producto')?.touched && dataForm.get('nombre_producto')?.invalid">
+          </div>
+        </div>
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-3">
+          <label class="form-label">Ubicacion: <span class="text-danger">*</span><br /></label>
+            <select class="form-control" formControlName="id_ubicacion">
+               @for (item of ubicaciones(); track item.id) {
+              <option [value]="item.id">{{ item.nombre }}</option>
+                    } 
+            </select>
+          </div>
+           <div class="col-md-3">
+          <label class="form-label">Unidades: <span class="text-danger">*</span><br /></label>
+            <select class="form-control" formControlName="id_unidad">
+               @for (item of unidades(); track item.id) {
+              <option [value]="item.id">{{ item.nombre }}</option>
+                    } 
+            </select>
+          </div>
+
+        </div> 
+
+         <div class="row g-3 mb-4">
+             <div class="col-md-2">
+          <label class="form-label">Familia: <span class="text-danger">*</span><br /></label>
+            <select class="form-control" formControlName="id_familia">
+               @for (item of familias(); track item.id) {
+              <option [value]="item.id">{{ item.nombre }}</option>
+                    } 
+            </select>
+          </div>
+
+        <div class="col-md-2">
+          <label class="form-label">Marca: <span class="text-danger">*</span><br /></label>
+            <select class="form-control" formControlName="id_marca">
+               @for (item of marcas(); track item.id) {
+              <option [value]="item.id">{{ item.nombre }}</option>
+                    } 
+            </select>
+          </div>
+
+
+         </div>
+
+            <div class="row g-3 mb-4">
+             <div class="col-md-2">
+            
+              <label class="form-label">Cantidad minima requerida: <span class="text-danger">*</span></label>
+            <input type="number" class="form-control" formControlName="minima_cantidad" 
+                   [class.is-invalid]="dataForm.get('minima_cantidad')?.touched && dataForm.get('minima_cantidad')?.invalid">
+               
+              </div>
+              </div>
+          
+
+ <div class="row g-3 mb-4">
+          <div class="col-md-6">
+
+           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="button" class="btn btn-secondary me-md-2" (click)="clickCancel()">Cancelar</button>
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-primary" [disabled]="dataForm.invalid">
+            Guardar Articulo
+            <span class="spinner-border spinner-border-sm" aria-hidden="true" [hidden]="!isLoading"></span> 
+          </button>
+        </div>
+    
+        </div>
+        </div>
+      </form>
+    </div>
+
+
+
+<!-- Formulario-->    
+</div>
