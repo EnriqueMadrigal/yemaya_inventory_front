@@ -20,7 +20,7 @@
                   
           <li class="nav-header">Personal</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a routerLink="#" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>
                 Calendario
@@ -29,15 +29,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a routerLink="#" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                Imagenes
+                Inventario Actual
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
+            <a routerLink="#" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Por Hacer
@@ -53,27 +53,27 @@
             </a>
           </li>
            <li class="nav-item">
-            <a href="listadounidades" class="nav-link">
+            <a routerLink="listadounidades" class="nav-link">
               <i class="nav-icon fas fa-bucket"></i>
               <p>Unidades</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="listadoUnidadbasicas" class="nav-link">
+            <a routerLink="listadoUnidadbasicas" class="nav-link">
               <i class="nav-icon fas fa-bucket"></i>
               <p>Unidades básicas</p>
             </a>
           </li>
 
         <li class="nav-item">
-            <a href="listadoFamilias" class="nav-link">
+            <a routerLink="listadoFamilias" class="nav-link">
               <i class="nav-icon fas fa-apple-whole"></i>
               <p>Familias</p>
             </a>
           </li>
 
         <li class="nav-item">
-            <a href="listadoUbicaciones" class="nav-link">
+            <a routerLink="listadoUbicaciones" class="nav-link">
               <i class="nav-icon fas fa-warehouse"></i>
               <p>Ubicaciones</p>
             </a>
@@ -84,40 +84,31 @@
 
             @if (currentRole.includes("1")) {
           <li class="nav-item">
-            <a href="listadoMarcas" class="nav-link">
+            <a routerLink="listadoMarcas" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Registro de marcas</p>
             </a>
           </li>
         }
 
-          <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+
+          <li class="nav-header">Entradas y salidas</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-circle nav-icon"></i>
-              <p>Level 1</p>
+            <a routerLink="#" class="nav-link">
+              <i class="nav-icon fas fa-circle-up"></i>
+              <p>Entradas</p>
             </a>
           </li>
-         
-          <li class="nav-header">LABELS</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">Important</p>
+
+           <li class="nav-item">
+            <a routerLink="#" class="nav-link">
+              <i class="nav-icon fas fa-circle-arrow-down"></i>
+              <p>Salidas</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Warning</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
-              <p>Informational</p>
-            </a>
-          </li>
+
+
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

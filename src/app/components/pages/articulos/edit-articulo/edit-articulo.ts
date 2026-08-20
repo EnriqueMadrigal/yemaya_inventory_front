@@ -12,6 +12,7 @@ import { FamiliaService } from '../../../../services/familia.service';
 import { UnidadService } from '../../../../services/unidad.service';
 import { MarcaService } from '../../../../services/marca.service';
 import { UbicacionService } from '../../../../services/ubicacion.service';
+import { UnidadbasicaService } from '../../../../services/unidadbasica.service';
 
 
 
@@ -40,7 +41,7 @@ currentData: Articulo = {
 }
 
 
-unidades = signal<Unidad[]>([]);
+unidades = signal<BasicModel[]>([]);
 familias = signal<BasicModel[]>([]);
 marcas = signal<BasicModel[]>([]);
 ubicaciones = signal<BasicModel[]>([]);
@@ -50,7 +51,7 @@ constructor(private router: Router,
     private fb: FormBuilder, 
     private articuloService: ArticuloService,
     private route: ActivatedRoute,
-    private unidadService: UnidadService,
+    private unidadbasicaService: UnidadbasicaService,
     private familiaService: FamiliaService,
     private marcaService: MarcaService,
     private ubicacionService: UbicacionService
@@ -243,7 +244,7 @@ clickCancel(){
 
 async safeCallUnidades() {
   console.log("obteniendo");
-      this.unidadService.getunidades().subscribe({
+      this.unidadbasicaService.getunidadbasicas().subscribe({
         next: (data) => {
          this.unidades.update(currentItems => data);   
           console.log(this.unidades);
