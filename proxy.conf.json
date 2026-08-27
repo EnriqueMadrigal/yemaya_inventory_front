@@ -1,7 +1,6 @@
 {
-  "https://yemayaclub.com/api/": {
-    "target": "/api",
+  "/api": {
+    "target": "http://localhost:8000",
     "secure": false
   }
 }
-

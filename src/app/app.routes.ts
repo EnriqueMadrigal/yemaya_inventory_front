@@ -15,6 +15,7 @@ import { Listadomarca } from './components/pages/marca/listado-marcas/listado-ma
 import { EditMarca } from './components/pages/marca/edit-marca/edit-marca';
 import { ListadoArticulos } from './components/pages/articulos/listado-articulos/listado-articulos';
 import { EditArticulo } from './components/pages/articulos/edit-articulo/edit-articulo';
+import { ListadoMovimientos } from './components/pages/movimientos/listado-movimientos/listado-movimientos';
 
 import { Unauthorized } from './components/pages/unauthorized/unauthorized';
 
@@ -115,6 +116,13 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: {roles: ['1','2']}
 },
+{
+    path: 'listadoMovimientos',
+    component: ListadoMovimientos,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+
 {
     path:'**',
     redirectTo: 'dashboard',
