@@ -31,7 +31,12 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th>Nombre</th>
-                      <th style="width: 40px">Acciones</th>
+                      <th>Cantidad</th>
+                      <th>Unidad</th>
+                      <th>Fecha</th>
+                      <th>Persona</th>
+
+                    
                     </tr>
                   </thead>
                   <tbody>
@@ -39,11 +44,12 @@
                     @for (movimiento of movimientos(); track movimiento.id; let i =$index;) {
                       <tr>
                       <td>{{i + 1}}</td>
-                      <td>{{movimiento.id_articulo}}</td>
-                      
-                      <td class="text-nowrap">
-                       
-                      </td>
+                      <td>{{movimiento.nombre_producto}}</td>
+                      <td>{{movimiento.cantidad}}</td>
+                      <td>{{movimiento.nombre_medida}}</td>
+                      <td>{{movimiento.created_at}}</td>
+                      <td>{{movimiento.first_name}} {{movimiento.last_name}}</td>
+
                     </tr>
                     
 

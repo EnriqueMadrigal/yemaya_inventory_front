@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs';
 import { Movimiento } from '../models/Movimiento';
+import { Entrada } from '../models/Entrada';
 
 import { Observable } from 'rxjs';
 import { ResponseData } from '../models/ResponseData';
@@ -66,8 +67,8 @@ const httpOptions = {
 
 
 
-    public getmovimientos(tipo: string): Observable<Movimiento[]> {
-        return this.http.get<Movimiento[]>(this.Url + tipo, {});
+    public getmovimientos(tipo: string): Observable<Entrada[]> {
+        return this.http.get<Entrada[]>(this.Url + tipo, {});
     }
 
      public getmovimiento(id: string): Observable<Movimiento> {

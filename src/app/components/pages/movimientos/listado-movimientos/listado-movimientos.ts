@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { Observable } from 'rxjs';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Movimiento } from '../../../../models/Movimiento';
+import { Entrada } from '../../../../models/Entrada';
 import { ResponseData } from '../../../../models/ResponseData';
 import { AlertService } from '../../../../services/alertServices'; 
 import { MovimientoService } from '../../../../services/movimiento.service';
@@ -18,7 +19,7 @@ import { MovimientoService } from '../../../../services/movimiento.service';
 export class ListadoMovimientos implements OnInit{
 
 
-movimientos = signal<Movimiento[]>([]);
+movimientos = signal<Entrada[]>([]);
 
 constructor(
     private router: Router,
