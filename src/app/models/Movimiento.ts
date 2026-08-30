@@ -4,7 +4,6 @@ export interface Movimiento {
   id_medida: number;
   cantidad: number;
   tipo: number;
-  costo: number;
   updated_by: number;
   created_at?: Date | string;
   observaciones: string;

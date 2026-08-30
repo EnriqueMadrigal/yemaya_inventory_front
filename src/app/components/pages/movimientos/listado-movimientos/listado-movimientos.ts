@@ -55,7 +55,7 @@ async safeCall() {
 
 
 clickNuevoMovimiento(){
-    this.router.navigate(['/editArticulo/0']);
+    this.router.navigate(['/addMovimiento']);
 }
 
 }

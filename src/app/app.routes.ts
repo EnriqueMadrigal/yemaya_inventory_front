@@ -16,6 +16,7 @@ import { EditMarca } from './components/pages/marca/edit-marca/edit-marca';
 import { ListadoArticulos } from './components/pages/articulos/listado-articulos/listado-articulos';
 import { EditArticulo } from './components/pages/articulos/edit-articulo/edit-articulo';
 import { ListadoMovimientos } from './components/pages/movimientos/listado-movimientos/listado-movimientos';
+import { AddMovimiento } from './components/pages/movimientos/add-movimiento/add-movimiento';
 
 import { Unauthorized } from './components/pages/unauthorized/unauthorized';
 
@@ -122,7 +123,12 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: {roles: ['1','2']}
 },
-
+{
+    path: 'addMovimiento',
+    component: AddMovimiento,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
 {
     path:'**',
     redirectTo: 'dashboard',

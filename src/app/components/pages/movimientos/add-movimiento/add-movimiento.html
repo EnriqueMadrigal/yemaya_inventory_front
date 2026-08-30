@@ -1,1 +1,94 @@
-<p>add-movimiento works!</p>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Agregar nueva Entrada de material</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<div class="card-body">
+      <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+        
+       
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <label class="form-label">Seleccion el articulo:<span class="text-danger">*</span></label>
+            <select class="form-control" formControlName="id_articulo">
+                    @for (item of arts(); track item.id) {
+              <option [value]="item.id">{{ item.nombre }}</option>
+                    } 
+                </select>
+          </div>
+        </div>
+
+
+
+           <div class="row g-3 mb-4">
+             <div class="col-md-1">
+            
+              <label class="form-label">Cantidad: <span class="text-danger">*</span></label>
+            <input type="number" class="form-control" formControlName="cantidad" 
+                   [class.is-invalid]="dataForm.get('cantidad')?.touched && dataForm.get('cantidad')?.invalid">
+               
+              </div>
+
+             <div class="col-md-3">
+            <label class="form-label">Seleccion la unidad:<span class="text-danger">*</span></label>
+            <select class="form-control" formControlName="id_medida">
+                    @for (item of unidades(); track item.id) {
+              <option [value]="item.id">{{ item.nombre }}</option>
+                    } 
+                </select>
+          </div>  
+
+
+              </div>
+          
+             <div class="row g-3 mb-4">
+             <div class="col-md-4">
+
+             <label class="form-label">Observaciones:<span class="text-danger">*</span></label>
+            <textarea class="form-control" formControlName="observaciones">
+                 </textarea>
+
+
+
+            </div>  
+            </div>
+          
+
+          
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+
+           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="button" class="btn btn-secondary me-md-2" (click)="clickCancel()">Cancelar</button>
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-primary" [disabled]="dataForm.invalid">
+            Guardar Entrada
+            <span class="spinner-border spinner-border-sm" aria-hidden="true" [hidden]="!isLoading"></span> 
+          </button>
+        </div>
+    
+        </div>
+        </div>
+      </form>
+    </div>
+
+
+
+<!-- Formulario-->    
+</div>
+
