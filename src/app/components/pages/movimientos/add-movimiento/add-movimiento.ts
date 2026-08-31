@@ -14,6 +14,7 @@ import { UnidadService } from '../../../../services/unidad.service';
 import { Unidad } from '../../../../models/Unidad';
 import { MovimientoService } from '../../../../services/movimiento.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from '../../../../services/auth';
 
 
 
@@ -38,6 +39,8 @@ arts = computed<BasicModel[]>(() =>
 
 dataForm!: FormGroup;
  isLoading = false;
+ userId =  "";
+
 currentData: Movimiento = {
   id: 0,
   id_articulo: 1,
@@ -57,6 +60,7 @@ constructor(
     private articuloService: ArticuloService,
     private unidadService: UnidadService,
     private movimientoService: MovimientoService,
+    private authService: AuthService,
     private alert: AlertService
 ){}
 
@@ -67,6 +71,7 @@ async showAlert(message: string) {
 
 
 ngOnInit(): void {
+this.userId = this.authService.getUserId() ?? "0";
 this.safeCall();
 this.safeCallUnidades();
 this.initForm();
@@ -106,6 +111,7 @@ this.dataForm = new FormGroup({
 onSubmit(): void {
     if (this.dataForm.valid) {
       const datos: Movimiento = this.dataForm.value;
+      datos.updated_by = Number(this.userId);
       this.isLoading = true;
       console.log('Datos a enviar:', datos);
       // Aquí llamarías a tu servicio para guardar en la DB
@@ -151,7 +157,7 @@ private RegisterNew(datos :Movimiento) {
                      this.showAlert(data.message);
                 }
                 else {
-                  this.router.navigate(['/listadoArticulos']);
+                  this.router.navigate(['/listadoMovimientos']);
                 }
 
               
