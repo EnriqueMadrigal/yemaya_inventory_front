@@ -17,6 +17,7 @@ import { ListadoArticulos } from './components/pages/articulos/listado-articulos
 import { EditArticulo } from './components/pages/articulos/edit-articulo/edit-articulo';
 import { ListadoMovimientos } from './components/pages/movimientos/listado-movimientos/listado-movimientos';
 import { AddMovimiento } from './components/pages/movimientos/add-movimiento/add-movimiento';
+import { ListadoInventario } from './components/pages/inventario/listado-inventario/listado-inventario';
 
 import { Unauthorized } from './components/pages/unauthorized/unauthorized';
 
@@ -120,6 +121,12 @@ export const routes: Routes = [
 {
     path: 'listadoMovimientos',
     component: ListadoMovimientos,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'listadoInventario',
+    component: ListadoInventario,
     canActivate: [authGuard],
     data: {roles: ['1','2']}
 },
