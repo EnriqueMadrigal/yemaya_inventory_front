@@ -4,6 +4,8 @@ import { tap } from 'rxjs';
 import { Articulo } from '../models/Articulo';
 import { Observable } from 'rxjs';
 import { ResponseData } from '../models/ResponseData';
+import { Inventario } from '../models/Inventario';
+
 
 @Injectable({
     providedIn: 'root'
@@ -76,6 +78,11 @@ const httpOptions = {
      public deletearticulo(id: string): Observable<ResponseData> {
         return this.http.delete<ResponseData>(this.Url + id, {});
     }
+
+    public getInventario(): Observable<Inventario[]> {
+        return this.http.get<Inventario[]>(this.Url, {});
+    }
+
 
 
 
