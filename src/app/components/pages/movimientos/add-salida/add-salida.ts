@@ -19,12 +19,12 @@ import { AuthService } from '../../../../services/auth';
 
 
 @Component({
-  selector: 'app-add-movimiento',
+  selector: 'app-add-salida',
   imports: [ReactiveFormsModule],
-  templateUrl: './add-movimiento.html',
-  styleUrl: './add-movimiento.css',
+  templateUrl: './add-salida.html',
+  styleUrl: './add-salida.css',
 })
-export class AddMovimiento implements OnInit{
+export class AddSalida implements OnInit{
 
 articulos = signal<Articulo[]>([]);
 unidades = signal<Unidad[]>([]);
@@ -46,13 +46,10 @@ currentData: Movimiento = {
   id_articulo: 1,
   id_medida: 1,
   cantidad: 0,
-  tipo: 1,
+  tipo: 2,
   updated_by: 0,
   observaciones: ""
 }
-
-
-
 
 constructor(
     private router: Router,
@@ -126,7 +123,7 @@ onSubmit(): void {
   }
 
 clickCancel(){
-    this.router.navigate(['/listadoMovimientos']);
+    this.router.navigate(['/listadoSalidas']);
 }
 
 
@@ -157,7 +154,7 @@ private RegisterNew(datos :Movimiento) {
                      this.showAlert(data.message);
                 }
                 else {
-                  this.router.navigate(['/listadoMovimientos']);
+                  this.router.navigate(['/listadoSalidas']);
                 }
 
               
@@ -191,5 +188,8 @@ private RegisterNew(datos :Movimiento) {
     
     console.log('Selected value:', element.value);
   }
+
+
+
 
 }

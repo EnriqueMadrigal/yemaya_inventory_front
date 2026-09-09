@@ -18,6 +18,8 @@ import { EditArticulo } from './components/pages/articulos/edit-articulo/edit-ar
 import { ListadoMovimientos } from './components/pages/movimientos/listado-movimientos/listado-movimientos';
 import { AddMovimiento } from './components/pages/movimientos/add-movimiento/add-movimiento';
 import { ListadoInventario } from './components/pages/inventario/listado-inventario/listado-inventario';
+import { ListadoSalidas } from './components/pages/movimientos/listado-salidas/listado-salidas';
+import { AddSalida } from './components/pages/movimientos/add-salida/add-salida'; 
 
 import { Unauthorized } from './components/pages/unauthorized/unauthorized';
 
@@ -133,6 +135,18 @@ export const routes: Routes = [
 {
     path: 'addMovimiento',
     component: AddMovimiento,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'listadoSalidas',
+    component: ListadoSalidas,
+    canActivate: [authGuard],
+    data: {roles: ['1','2']}
+},
+{
+    path: 'addSalida',
+    component: AddSalida,
     canActivate: [authGuard],
     data: {roles: ['1','2']}
 },
