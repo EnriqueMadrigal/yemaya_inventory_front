@@ -38,7 +38,7 @@
              <div class="col-md-2">
             
               <label class="form-label">Cantidad: <span class="text-danger">*</span></label>
-            <input type="number" class="form-control" formControlName="cantidad" 
+            <input type="number" class="form-control" formControlName="cantidad" min="0" 
                    [class.is-invalid]="dataForm.get('cantidad')?.touched && dataForm.get('cantidad')?.invalid">
                
               </div>

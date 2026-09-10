@@ -21,8 +21,8 @@
         
        
 
-        <div class="row g-3 mb-4">
-          <div class="col-md-4">
+        <div class="row g-3 mb-5">
+          <div class="col-md-5">
             <label class="form-label">Seleccion el articulo:<span class="text-danger">*</span></label>
             <select class="form-control" formControlName="id_articulo" (change)="onSelect($event)">
                     @for (item of arts(); track item.id) {
@@ -34,11 +34,11 @@
 
 
 
-           <div class="row g-3 mb-4">
-             <div class="col-md-1">
+           <div class="row g-3 mb-5">
+             <div class="col-md-2">
             
               <label class="form-label">Cantidad: <span class="text-danger">*</span></label>
-            <input type="number" class="form-control" formControlName="cantidad" 
+            <input type="number" class="form-control" formControlName="cantidad" min="0" 
                    [class.is-invalid]="dataForm.get('cantidad')?.touched && dataForm.get('cantidad')?.invalid">
                
               </div>
@@ -55,8 +55,8 @@
 
               </div>
           
-             <div class="row g-3 mb-4">
-             <div class="col-md-4">
+             <div class="row g-3 mb-5">
+             <div class="col-md-5">
 
              <label class="form-label">Observaciones:<span class="text-danger">*</span></label>
             <textarea class="form-control" formControlName="observaciones">
